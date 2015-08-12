@@ -1,0 +1,13 @@
+.idea
+.enb/tmp
+.DS_Store
+*/.DS_Store
+*/*/.DS_Store
+node_modules/
+build/*/*.*
+test/*
+!test/test.html
+!test/mocha.js
+!test/mocha.css
+!test/chai.js
+!test/sinon.js
