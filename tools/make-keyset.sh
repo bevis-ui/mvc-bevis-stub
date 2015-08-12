@@ -1,30 +1,30 @@
 #!/bin/sh
 
 echo ""
-printf "Введите имя keyset: "
+printf "Введите имя Keyset: "
 read KeySet
 
-if [ -d blocks/i18n/_keyset/i18n_keyset_$KeySet.i18n ]; then
+if [ -d client/views/i18n/_keyset/i18n_keyset_$KeySet.i18n ]; then
     echo "Операция прервана: keyset '$KeySet' уже существует."
     exit
 fi
 
 
-mkdir -p blocks/i18n/_keyset/i18n_keyset_$KeySet.i18n
+mkdir -p client/views/i18n/_keyset/i18n_keyset_$KeySet.i18n
 
 echo "module.exports = {
     \"$KeySet\": {
         \"my-key\": \"моё значение\"
     }
-}; " > blocks/i18n/_keyset/i18n_keyset_$KeySet.i18n/ru.js
+}; " > client/views/i18n/_keyset/i18n_keyset_$KeySet.i18n/ru.js
 
 echo "module.exports = {
     \"$KeySet\": {
         \"my-key\": \"my value\"
     }
-}; " > blocks/i18n/_keyset/i18n_keyset_$KeySet.i18n/en.js
+}; " > client/views/i18n/_keyset/i18n_keyset_$KeySet.i18n/en.js
 
 echo "----------------------------------------------------------"
-echo "Создан keyset blocks/i18n/_keyset/i18n_keyset_$KeySet.i18n"
+echo "Создан keyset client/views/i18n/_keyset/i18n_keyset_$KeySet.i18n"
 echo "----------------------------------------------------------"
-ls -la blocks/i18n/_keyset/i18n_keyset_$KeySet.i18n
+ls -la client/views/i18n/_keyset/i18n_keyset_$KeySet.i18n

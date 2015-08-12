@@ -1,6 +1,6 @@
 ## Запуск
 ```shell
-git clone git@github.com:bevis-ui/bevis-stub.git your-project
+git clone git@github.com:bevis-ui/mvc-bevis-stub.git your-project
 cd your-project
 make
 ```
@@ -12,7 +12,7 @@ make
 Убедитесь, что в пути к проекту нет символов unicode, иначе это может привести к  [ошибкам](https://github.com/bevis-ui/bevis-stub/issues/9). 
 
 ```shell
-git clone git@github.com:bevis-ui/bevis-stub.git your-project
+git clone git@github.com:bevis-ui/mvc-bevis-stub.git your-project
 cd your-project
 npm install
 node_modules\.bin\enb make
@@ -28,24 +28,46 @@ mklink /J configs\current configs\development
 git update-index --assume-unchanged configs/current
 ```
 
+## Как подключить свой репозиторий
+```shell
+git remote rename origin upstream
+git remote add origin git@github.com:<ваш_аккаунт_на_гитхабе>/<имя_репозитория>.git
+git push -u origin master
+```
+Теперь `origin` "смотрит" в ваш репозиторий. А `upstream` смотрит в оригинальный `github.com:bevis-ui/mvc-bevis-stub` 
+
+Чтобы получить обновления из `github.com:bevis-ui/mvc-bevis-stub`, делаем `git pull` из `upstream`:
+```
+git pull upstream master
+```
+
 ## Как сделать ещё одну страницу?
 Запустить команду и ответить на вопрос:
 ```shell
 make page
 # Введите имя страницы: <ИМЯ СТРАНИЦЫ>
 ```
-После на файловой системе станет доступна страница `/pages/<ИМЯ СТРАНИЦЫ>/<ИМЯ СТРАНИЦЫ>-page.page.js`.
+После на файловой системе станет доступна страница `client/pages/<ИМЯ СТРАНИЦЫ>/<ИМЯ СТРАНИЦЫ>-page.page.js`.
 
 А в браузере она же по адресу `http://localhost:8080/<ИМЯ СТРАНИЦЫ>`
 
 
-## Как сделать ещё один блок?
+## Как сделать View?
 Запустить команду и ответить на вопрос:
 ```shell
-make block
-# Введите имя блока: <ИМЯ БЛОКА>
+make view
+# Введите имя View: <ИМЯ VIEW>
 ```
-После на файловой системе станет доступна директория с файлами блока `/blocks/<ИМЯ БЛОКА>`.
+После на файловой системе станет доступна директория с файлами блока `client/views/<ИМЯ VIEW>`.
+
+## Как сделать Хранилище переводов для какого-то View?
+Запустить команду и ответить на вопрос:
+```shell
+make keyset
+# Введите имя Keyset: <ИМЯ KEYSET>
+```
+После на файловой системе станет доступна директория с файлами блока 
+`client/views/i18n/_keyset/i18n_keyset_<ИМЯ_БЛОКА>.i18n`.
 
 Успехов! :)
 ```

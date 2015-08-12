@@ -1,7 +1,7 @@
 #!/bin/sh
 
 echo ""
-printf "Введите имя view: "
+printf "Введите имя View: "
 read BlockName
 
 if [ -d client/views/$BlockName ]; then
@@ -30,7 +30,7 @@ echo "modules.define(
     '$BlockName',
     [
         'inherit',
-        'y-block'
+        'block'
     ],
     function (
         provide,
